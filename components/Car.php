@@ -2,10 +2,11 @@
 
 namespace app\components;
 
+use app\interfaces\CarInterface;
 use app\interfaces\DriverInterface;
 use yii\base\BaseObject;
 
-class Car extends BaseObject
+class Car extends BaseObject implements CarInterface
 {
 	public $driver;
 

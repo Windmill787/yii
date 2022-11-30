@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/test_db.php';
 
@@ -41,6 +41,12 @@ return [
             ],
             */
         ],
+		'car' => \app\components\Car::class,
     ],
     'params' => $params,
+	'container' => [
+		'definitions' => [
+			\app\interfaces\DriverInterface::class => \app\components\Driver::class,
+		],
+	],
 ];
