@@ -1,7 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\components\Car;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -61,6 +62,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+//		Yii::$container->set(\app\interfaces\DriverInterface::class, \app\components\Driver::class);
+		Yii::$container->get('car')->move();
+		die();
         return $this->render('index');
     }
 

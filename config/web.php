@@ -6,7 +6,9 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+		'log',
+	],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -41,17 +43,21 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
-        /*
+//        'db' => $db,
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
     ],
     'params' => $params,
+	'container' => [
+		'definitions' => [
+			'car' => \app\components\Car::class,
+			\app\interfaces\DriverInterface::class => \app\components\Driver::class,
+		],
+	],
 ];
 
 if (YII_ENV_DEV) {
