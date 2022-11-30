@@ -13,6 +13,6 @@ class CarTest extends Unit
 	{
 		$car = Yii::$container->get(CarInterface::class, ['type' => CarType::PETROL]);
 		verify($car)->instanceOf(CarInterface::class);
-		verify($car->type)->equals(CarType::PETROL);
+		verify($car->type->value)->equals(CarType::PETROL->value);
 	}
 }

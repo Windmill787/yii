@@ -2,8 +2,8 @@
 
 namespace app\components;
 
-enum CarType
+enum CarType: string
 {
-	case ELECTRIC;
-	case PETROL;
+	case ELECTRIC = 'electric';
+	case PETROL = 'petrol';
 }
