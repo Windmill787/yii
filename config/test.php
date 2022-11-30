@@ -41,12 +41,12 @@ return [
             ],
             */
         ],
-		'car' => \app\components\Car::class,
     ],
     'params' => $params,
 	'container' => [
 		'definitions' => [
 			\app\interfaces\DriverInterface::class => \app\components\Driver::class,
+			\app\interfaces\CarInterface::class => \app\components\Car::class,
 		],
 	],
 ];

@@ -9,11 +9,13 @@ use yii\base\BaseObject;
 class Car extends BaseObject implements CarInterface
 {
 	public $driver;
+	public $type;
 
-	public function __construct(DriverInterface $driver, $config = [])
+	public function __construct(DriverInterface $driver, CarType $type, $config = [])
 	{
 		parent::__construct($config);
 		$this->driver = $driver;
+		$this->type = $type;
 	}
 
 	public function move(): void
