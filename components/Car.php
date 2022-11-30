@@ -3,13 +3,15 @@
 namespace app\components;
 
 use app\interfaces\DriverInterface;
+use yii\base\BaseObject;
 
-class Car
+class Car extends BaseObject
 {
 	public $driver;
 
-	public function __construct(DriverInterface $driver)
+	public function __construct(DriverInterface $driver, $config = [])
 	{
+		parent::__construct($config);
 		$this->driver = $driver;
 	}
 

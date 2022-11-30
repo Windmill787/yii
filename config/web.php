@@ -50,11 +50,11 @@ $config = [
             'rules' => [
             ],
         ],
+		'car' => \app\components\Car::class,
     ],
     'params' => $params,
 	'container' => [
 		'definitions' => [
-			'car' => \app\components\Car::class,
 			\app\interfaces\DriverInterface::class => \app\components\Driver::class,
 		],
 	],

@@ -63,7 +63,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
 //		Yii::$container->set(\app\interfaces\DriverInterface::class, \app\components\Driver::class);
-		Yii::$container->get('car')->move();
+		Yii::$app->get('car')->move();
 		die();
         return $this->render('index');
     }
