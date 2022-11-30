@@ -15,12 +15,6 @@ class Car extends BaseObject
 		$this->driver = $driver;
 	}
 
-//	public function __construct(DriverInterface $driver, $config = [])
-//	{
-//		parent::__construct($config);
-//		$this->driver = $driver;
-//	}
-
 	public function move(): void
 	{
 		if ($this->driver->sit()) {
