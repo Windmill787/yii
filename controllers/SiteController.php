@@ -2,7 +2,9 @@
 
 namespace app\controllers;
 
+use app\models\Car;
 use Yii;
+use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -61,7 +63,20 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+		Yii::$app->db->attributes[\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY] = false;
+		$query = Car::find()->asArray();
+
+		$batchCount = 0;
+		foreach ($query->batch(100000) as $batch) {
+			$batchCount += count($batch);
+			unset($batch);
+		}
+
+		Yii::$app->db->attributes[\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY] = true;
+
+        return $this->render('index', [
+			'cars' => Yii::$app->db->pdo,
+		]);
     }
 
     /**
